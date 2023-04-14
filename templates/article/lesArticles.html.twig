@@ -10,26 +10,16 @@
 
 <div class="container">
     
-    {% for article in listeArticles %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-header bg-title">
-            Titre : {{article.titre}}
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">id : {{article.id}}</li>
-          <li class="list-group-item">Contenue : {{article.contenu}}</li>
-          <li class="list-group-item">Date : {{article.date | date('d-m-y')}}</li>
-          <li class="list-group-item">id user : {{article.user}}</li>
-        </ul>
-        <ul>Catégories: 
-          {% for cat in article.categories %}
-            <li>{{cat.nom}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      
-      
-      {% endfor %}
+  {% for article in listeArticles %}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Titre : {{article.titre}}</h5>
+      <p class="card-text">Contenue : {{article.contenu}}</p>
+      <a href="{{ path('app_article_id', {'id':article.id}) }}" class="card-link">Voir plus...</a>
+    </div>
+  </div>
+  {% endfor %}
+    
 </div>
 
 {% endblock %}

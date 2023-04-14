@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+
+{# {% for article in listeArticles %}
+        <p>{{article.titre}}</p>
+{% endfor %} #}
+
+<div class="container">
+    
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-header bg-title">
+            Titre : {{article.titre}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">id : {{article.id}}</li>
+          <li class="list-group-item">Auteur : {{article.user.nom}} {{article.user.prenom}}</li>
+          <li class="list-group-item">Contenue : {{article.contenu}}</li>
+          <li class="list-group-item">Date : {{article.date | date('d-m-Y')}}</li>
+          <li class="list-group-item">id auteur : {{article.user.id}}</li>
+        </ul>
+        <ul>Catégories: 
+          {% for cat in article.categories %}
+            <li>{{cat.nom}}</li>
+          {% endfor %}
+        </ul>
+        <ul>
+            <a href="{{ path('app_article_all')}}" class="card-link">Voir tous les articles...</a>
+        </ul>
+        
+    </div>
+      
+</div>
+
+{% endblock %}

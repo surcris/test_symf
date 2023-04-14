@@ -57,5 +57,19 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/article/id/{id}', name: 'app_article_id')]
+    public function showArticle(ArticleRepository $articleRepository,$id): Response
+    {   
+        
+        $article = $articleRepository->find($id);
+        
+        return $this->render('article/unArticle.html.twig', [
+            //'listeArticles' => $articles,
+            'article' => $article,
+            // 'articleByDate' => $articleByDate,
+            // 'articlesByDate' => $articlesByDate,
+        ]);
+    }
+
 
 }
