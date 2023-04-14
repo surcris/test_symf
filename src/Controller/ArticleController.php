@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping\Id;
+use App\Entity\Article;
+use App\Form\ArticleType;
 
 class ArticleController extends AbstractController
 {
@@ -71,5 +73,16 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/article/add', name:'app_article_add')]
+    public function addArticle():Response{
+        
+        $article = new Article();
+
+        $form = $this->createForm(ArticleType::class, $article);
+    
+        return $this->render('article/addArticle.html.twig', [
+            'form'=> $form->createView(),
+        ]);
+    }
 
 }
