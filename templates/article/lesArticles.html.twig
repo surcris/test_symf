@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+
+{# {% for article in listeArticles %}
+        <p>{{article.titre}}</p>
+{% endfor %} #}
+
+<div class="container">
+    
+    {% for article in listeArticles %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-header bg-title">
+            Titre : {{article.titre}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">id : {{article.id}}</li>
+          <li class="list-group-item">Contenue : {{article.contenu}}</li>
+          <li class="list-group-item">Date : {{article.date | date('d-m-y')}}</li>
+          <li class="list-group-item">id user : {{article.user}}</li>
+        </ul>
+        <ul>Catégories: 
+          {% for cat in article.categories %}
+            <li>{{cat.nom}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      
+      {% endfor %}
+</div>
+
+{% endblock %}
