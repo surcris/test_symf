@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter catégorie!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    {% if categories is defined %}
+        {% for categorie in categories %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Id : {{categorie.id}}</h5>
+                <p class="card-text">Nom : {{categorie.nom}}</p>
+                <a href="{{ path('app_categorie_show', {'id':categorie.id}) }}" class="card-link">Voir plus...</a>
+            </div>
+        </div>
+        
+        {% endfor %}
+
+    {% else %}
+        {{msg}}
+    {% endif %}
+    
+
+</div>
+{% endblock %}

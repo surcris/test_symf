@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter catégorie!{% endblock %}
+
+{% block body %}
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Id : {{categorie.id}}</h5>
+        <p class="card-text">Nom :  {{categorie.nom}}</p>
+        <a href="{{ path('app_categorie_delete', {'id':categorie.id}) }}" class="card-link">Supprimer</a>
+        <a href="{{ path('app_categorie_update',{'id':categorie.id}) }}" class="card-link">Modifier</a>
+        <a href="{{ path('app_categorie_showAll') }}" class="card-link">Voir tout</a>
+        </div>
+    </div>
+        
+       
+    
+{% endblock %}
