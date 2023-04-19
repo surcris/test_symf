@@ -35,6 +35,10 @@ header ul .nav-item {
     border-radius: 12px;
 }
 
+.container .card{
+
+}
+
 .container > .form-group{
     background-color: rgb(247, 247, 247);
     padding: 10px;
