@@ -44,6 +44,7 @@ class ArticleController extends AbstractController
     #[Route('/article/all', name: 'app_article_all')]
     public function showArticleAll(ArticleRepository $articleRepository): Response
     {   
+        
         $articles = $articleRepository->findAll();
         $article = $articleRepository->find(1);
         //$articleByDate = $articleRepository->findOneBy(['date'=>'2023-01-01']);
@@ -53,6 +54,7 @@ class ArticleController extends AbstractController
         //dd($articles);
         return $this->render('article/lesArticles.html.twig', [
             'listeArticles' => $articles,
+            'tva' => $this->getParameter('tva'),
             // 'article' => $article,
             // 'articleByDate' => $articleByDate,
             // 'articlesByDate' => $articlesByDate,
